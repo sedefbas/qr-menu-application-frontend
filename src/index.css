@@ -1,13 +1,89 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Manrope&family=Nanum+Gothic&family=Open+Sans:ital,wght@1,400;1,500;1,600;1,700&display=swap");
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease; /* 0.5 saniyede açılma animasyonu */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
+.menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease-out; /* Kapanırkenki kısmı */
+  background-color: #f2f2f2; /* Arkaplan rengi */
+}
+
+.menu.open {
+  max-height: 500px; /* Açıldığında maksimum yükseklik */
+  transition: max-height 0.8s ease-in;
+  background-color: #f2f2f2; /* Arkaplan rengi */
+}
+
+@media (max-width: 640px) {
+  .absolute img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .md\:block {
+    display: none !important;
+  }
+  .hidden {
+    display: block !important;
+  }
+}
+
+/* Büyük ekranlar için özel stil */
+@media (min-width: 640px) {
+  .md\:block {
+    display: block !important;
+  }
+  .hidden {
+    display: none !important;
+  }
+}
+
+.menu-text {
+  color: #000000;
+  text-shadow: 1px 1px 0px #d7dae5, 0px 0px 0px #d7dae5;
+  font: 80px "BlackJackRegular";
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 640px) {
+  .sm\:items-center {
+    align-items: center !important;
+  }
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+th {
+  padding: 20px;
+}
+
+ td {
+  padding: 20px;
+}
+
+/* Tablo kenarlarına boşluk ekleyin */
+
+ td {
+  border: 1px solid #ccc; /* İstediğiniz renk ve kalınlık için CSS'i özelleştirebilirsiniz */
+}
+
